@@ -15,6 +15,8 @@ class GamesController < ApplicationController
     else
       @score = "You used the wrong letters, that's nonsense..."
     end
+    session[:score] ||= 0
+    session[:score] += @score if @score.class == Integer
   end
 
   def validation?(keyword)
